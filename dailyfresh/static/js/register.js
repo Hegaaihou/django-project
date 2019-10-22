@@ -48,8 +48,15 @@ $(function(){
 		}
 		else
 		{
-			$('#user_name').next().hide();
-			error_name = false;
+			var name = $('#user_name').val();
+			$.get('/user/register_exist/?uname='+name,function (data) {
+				if(data.count>0){
+					$('#user_name').next().html('user had been exist').show();
+				}else{
+					$('#user_name').next().hide();
+					error_name = false;
+				}
+            })
 		}
 	}
 

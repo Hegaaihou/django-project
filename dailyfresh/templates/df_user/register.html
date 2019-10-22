@@ -17,7 +17,8 @@
 				<a href="#">登录</a>
 			</div>
 			<div class="reg_form clearfix">
-				<form>
+				<form action="/user/register_handle/" method="post">
+					{%csrf_token%}
 				<ul>
 					<li>
 						<label>用户名:</label>
